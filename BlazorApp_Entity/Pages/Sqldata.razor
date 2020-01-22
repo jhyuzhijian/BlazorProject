@@ -1,0 +1,57 @@
+﻿@page "/sqldata"
+@using BlazorApp_Entity.Data
+@inject Data.SqlConnect SqlService
+<h3>Sqldata</h3>
+<div>
+    IP：<input placeholder="Ip地址" @bind-value="IpAdress" />
+    Port:<input placeholder="端口号" @bind-value="Port" />
+</div>
+<div>
+    Account:<input placeholder="账号" @bind-value="Account" />
+    Password:<input placeholder="密码" @bind-value="Password" />
+</div>
+<button class="btn btn-primary" @onclick="connectionDb">连接数据库</button>
+@if (tables == null)
+{
+    <p><em>Loading</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>TableName</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var table in tables)
+            {
+                <tr>
+                    <td>@table</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    [Parameter]
+    public string IpAdress { get; set; } = "127.0.0.1";
+    [Parameter]
+    public string Port { get; set; } = "3306";
+    [Parameter]
+    public string Account { get; set; } = "root";
+    [Parameter]
+    public string Password { get; set; } = "123456";
+
+    public void connectionDb()
+    {
+        tables = SqlService.GetDatabaseList(new SqlConnect.ConnectionInfo { Account = Account, IpAdress = IpAdress, Port = Port, Pwd = Password });
+    }
+    List<SqlConnect.TableInfo> tables;
+    protected override void OnInitialized()
+    {
+        tables = SqlService.GetDatabaseList(new SqlConnect.ConnectionInfo { Account = Account, IpAdress = IpAdress, Port = Port, Pwd = Password });
+    }
+}

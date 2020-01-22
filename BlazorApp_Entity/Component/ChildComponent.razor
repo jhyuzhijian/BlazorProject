@@ -1,0 +1,44 @@
+﻿@*<div extra="5" @attributes="AdditionalAttributes"></div>*@
+<h2>Child Component</h2>
+<p>Year:@Year</p>
+<div class="panel panel-default">
+    <div class="panel-heading">@Title</div>
+    <div class="panel-body">"内容：@ChildContent</div>
+
+    <button class="btn btn-primary" @onclick="OnClickMy">
+        触发父组件方法
+    </button>
+    @((MarkupString)myMarkup)
+
+    @*<h2>下面循环button</h2>
+        <h2>@message</h2>
+        @for (var i = 1; i < 3; i++)
+        {
+            var buttonNum = i;
+            <button class="btn btn-primary" @onclick="@(e=>UpdateHeading(e,buttonNum))">Button @i</button>
+        }*@
+</div>
+
+
+@code {
+    private string myMarkup = "<button class='btn btn-primary'>html按钮</button>";
+    private string message { get; set; } = "我是初始值";
+    [Parameter]
+    public string Title { get; set; }
+    [Parameter]
+    public int Year { get; set; }
+
+    public EventCallback<int> YearChanged { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public IDictionary<string, object> AdditionalAttributes { get; set; }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClickMy { get; set; }
+    private void UpdateHeading(MouseEventArgs e, int buttonNumber)
+    {
+        message = $"You selected Button #{buttonNumber} at " +
+            $"mouse position: {e.ClientX} X {e.ClientY}.";
+    }
+}
