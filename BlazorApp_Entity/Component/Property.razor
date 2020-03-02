@@ -1,0 +1,13 @@
+﻿@page "/properties"
+@using BlazorApp_Entity.Data
+@using BlazorApp_Entity.Model
+@inherits BlazorApp_Entity.Data.Properties
+<h3>Property</h3>
+
+<BTable DataSource="Datas" IsBordered="true" AutoGenerateColumns="false" HasSelectionColumn="false">
+    <BTableColumns>
+        <BTableColumn Width="100" Property="@nameof(PropertyInfo.PropertyName)" Text="姓名"></BTableColumn>
+        <BTableDateTimeColumn Width="200" Format="yyyy-MM-dd" Property="@nameof(TestData.Time)" Text="时间"></BTableDateTimeColumn>
+        <BTableColumn Width="300" Property="@nameof(TestData.Address)" Text="地址"></BTableColumn>
+    </BTableColumns>
+</BTable>

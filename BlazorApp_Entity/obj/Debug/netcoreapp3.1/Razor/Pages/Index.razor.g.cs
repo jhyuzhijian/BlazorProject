@@ -9,131 +9,181 @@ namespace BlazorApp_Entity.Pages
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
+#nullable restore
 #line 1 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 2 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 3 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 4 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 5 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 6 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 7 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 8 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using BlazorApp_Entity;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 9 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using BlazorApp_Entity.Shared;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 10 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using BlazorApp_Entity.Component;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 12 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.Container;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 13 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.Button;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 14 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.Dom;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 15 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.Dynamic;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 16 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.NavMenu;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 17 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.Input;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 18 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.Radio;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 19 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.Select;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 20 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.CheckBox;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 21 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.Switch;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 22 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.Table;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 23 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.Popup;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 24 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.Pagination;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 25 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component.Form;
 
 #line default
 #line hidden
+#nullable disable
+#nullable restore
 #line 26 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\_Imports.razor"
 using Blazui.Component;
 
 #line default
 #line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : DataClass.DataClass
     {
@@ -143,11 +193,13 @@ using Blazui.Component;
             __builder.AddMarkupContent(0, "<h1>Hello, world!</h1>\r\n");
             __builder.OpenElement(1, "input");
             __builder.AddAttribute(2, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+#nullable restore
 #line 5 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\Pages\Index.razor"
                     age
 
 #line default
 #line hidden
+#nullable disable
             ));
             __builder.AddAttribute(3, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => age = __value, age));
             __builder.SetUpdatesAttributeName("value");
@@ -157,22 +209,26 @@ using Blazui.Component;
             __builder.OpenElement(6, "p");
             __builder.AddContent(7, "ParentYear:");
             __builder.AddContent(8, 
+#nullable restore
 #line 11 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\Pages\Index.razor"
                ParentYear
 
 #line default
 #line hidden
+#nullable disable
             );
             __builder.CloseElement();
             __builder.AddMarkupContent(9, "\r\n\r\n");
             __builder.OpenComponent<BlazorApp_Entity.Component.ChildComponent>(10);
             __builder.AddAttribute(11, "Title", "Panel Title from Parent");
             __builder.AddAttribute(12, "OnClickMy", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<Microsoft.AspNetCore.Components.Web.MouseEventArgs>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+#nullable restore
 #line 13 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\Pages\Index.razor"
                                                             ShowMessage
 
 #line default
 #line hidden
+#nullable disable
             )));
             __builder.AddAttribute(13, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder2) => {
                 __builder2.AddMarkupContent(14, "\r\n    Content of the child component is supplied by the parent component.\r\n");
@@ -183,22 +239,26 @@ using Blazui.Component;
             __builder.OpenElement(16, "p");
             __builder.OpenElement(17, "b");
             __builder.AddContent(18, 
+#nullable restore
 #line 19 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\Pages\Index.razor"
        messageText
 
 #line default
 #line hidden
+#nullable disable
             );
             __builder.CloseElement();
             __builder.CloseElement();
             __builder.AddMarkupContent(19, "\r\n");
             __builder.OpenComponent<Blazui.Component.Button.BButton>(20);
             __builder.AddAttribute(21, "Type", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Blazui.Component.Button.ButtonType>(
+#nullable restore
 #line 20 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\Pages\Index.razor"
                 ButtonType.Primary
 
 #line default
 #line hidden
+#nullable disable
             ));
             __builder.AddAttribute(22, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder2) => {
                 __builder2.AddMarkupContent(23, "主要按钮");
@@ -208,6 +268,7 @@ using Blazui.Component;
             __builder.AddMarkupContent(24, "\r\nWelcome to your new app.\r\n");
         }
         #pragma warning restore 1998
+#nullable restore
 #line 26 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\Pages\Index.razor"
  
     private int selectedValue { get; set; } = 3;
@@ -253,6 +314,7 @@ using Blazui.Component;
 
 #line default
 #line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

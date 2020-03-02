@@ -18,15 +18,16 @@ namespace BlazorApp_Entity.Data
     {
         [TableColumn(Text = "表名")]
         public string TableName { get; set; }
-        //public string Schema { get; set; }
+        public string Schema { get; set; }
         [TableColumn(Text = "表描述")]
         public string Describe { get; set; }
     }
+
     public class SqlConnect : ComponentBase
     {
         protected BTable table;
-
         public List<TableInfo> tables = new List<TableInfo>();
+
         protected int currentPage = 1;
         protected int pageSize = 5;
         internal int CurrentPage

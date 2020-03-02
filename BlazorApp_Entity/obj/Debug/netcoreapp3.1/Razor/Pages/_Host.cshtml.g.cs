@@ -79,11 +79,13 @@ namespace BlazorApp_Entity.Pages
             WriteLiteral("\r\n");
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9692d05c5ea22b87b1b2a875cdfb3ec5eb15caef5841", async() => {
                 WriteLiteral("\r\n    <app>\r\n        ");
+#nullable restore
 #line 19 "D:\DotNet\BlazorApp20200105\DotNet\BlazorProject\BlazorApp_Entity\Pages\_Host.cshtml"
     Write(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered));
 
 #line default
 #line hidden
+#nullable disable
                 WriteLiteral("\r\n    </app>\r\n\r\n    <script src=\"_content/Blazui.Component/js/dom.js\"></script>\r\n    <script src=\"_framework/blazor.server.js\"></script>\r\n");
             }
             );
