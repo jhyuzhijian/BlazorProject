@@ -1,4 +1,5 @@
 ﻿using BlazorApp_Entity.Server;
+using Blazui.Component;
 using Blazui.Component.Table;
 using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
@@ -22,7 +23,6 @@ namespace BlazorApp_Entity.Data
         [TableColumn(Text = "表描述")]
         public string Describe { get; set; }
     }
-
     public class SqlConnect : ComponentBase
     {
         protected BTable table;
@@ -30,6 +30,9 @@ namespace BlazorApp_Entity.Data
 
         protected int currentPage = 1;
         protected int pageSize = 5;
+
+        [Inject]
+        public DialogService _DialogService { get; set; }
         internal int CurrentPage
         {
             get
@@ -42,11 +45,12 @@ namespace BlazorApp_Entity.Data
                 tables = GetAllList().Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
             }
         }
+        private string connectionstr = "Data Source=SHARING\\SQLEXPRESS;Initial Catalog=edu_zjzj;User ID=sa;Password=123;MultipleActiveResultSets=true";
         public List<TableInfo> GetAllList()
         {
             //string connection = $"server={Info.IpAdress};port={Info.Port};uid={Info.Account};pwd={Info.Pwd};database={Info.Database}";
-            string connection = $"Data Source=LAPTOP-FG0SOM1N;Initial Catalog=test;User ID=sa;Password=123;MultipleActiveResultSets=true";
-            var TableList = new DBServer(connection).db.SqlQueryable<TableInfo>(@"select top 1000
+            //string connection = $"Data Source=LAPTOP-FG0SOM1N;Initial Catalog=test;User ID=sa;Password=123;MultipleActiveResultSets=true";
+            var TableList = new DBServer(connectionstr).db.SqlQueryable<TableInfo>(@"select top 1000
                                     ROW_NUMBER() OVER (ORDER BY a.name) AS No, 
                                     a.name AS TableName,
                                     CONVERT(NVARCHAR(100),isnull(g.[value],'-')) AS Describe
@@ -63,7 +67,7 @@ namespace BlazorApp_Entity.Data
         {
             //string connection = $"server={Info.IpAdress};port={Info.Port};uid={Info.Account};pwd={Info.Pwd};database={Info.Database}";
             string connection = $"Data Source=LAPTOP-FG0SOM1N;Initial Catalog=test;User ID=sa;Password=123;MultipleActiveResultSets=true";
-            var TableList = new DBServer(connection).db.SqlQueryable<TableInfo>(@"select top 1000
+            var TableList = new DBServer(connectionstr).db.SqlQueryable<TableInfo>(@"select top 1000
                                     ROW_NUMBER() OVER (ORDER BY a.name) AS No, 
                                     a.name AS TableName,
                                     CONVERT(NVARCHAR(100),isnull(g.[value],'-')) AS Describe
