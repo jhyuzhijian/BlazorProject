@@ -6,8 +6,8 @@
 
 <BTable DataSource="Datas" IsBordered="true" AutoGenerateColumns="false" HasSelectionColumn="false">
     <BTableColumns>
-        <BTableColumn Width="100" Property="@nameof(PropertyInfo.PropertyName)" Text="姓名"></BTableColumn>
-        <BTableDateTimeColumn Width="200" Format="yyyy-MM-dd" Property="@nameof(TestData.Time)" Text="时间"></BTableDateTimeColumn>
-        <BTableColumn Width="300" Property="@nameof(TestData.Address)" Text="地址"></BTableColumn>
+        <BTableColumn Width="100" Property="@nameof(PropertyInfo.PropertyName)" Text="字段名"></BTableColumn>
+        <BTableColumn Width="100" Property="@nameof(PropertyInfo.PropertyType)" Text="字段类别"></BTableColumn>
+        <BTableColumn Width="100" Property="@nameof(PropertyInfo.PropertyDescribe)" Text="字段描述"></BTableColumn>
     </BTableColumns>
 </BTable>

@@ -17,23 +17,6 @@
 }
 else
 {
-    @*<table class="table">
-            <thead>
-                <tr>
-                    <th>表</th>
-                    <th>描述</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var table in tables)
-                {
-                    <tr>
-                        <td>[@table.Schema].[@table.TableName]</td>
-                        <td>@table.Describe</td>
-                    </tr>
-                }
-            </tbody>
-        </table>*@
     <BTable DataSource="tables" Total="tables.Count" @bind-CurrentPage="CurrentPage" PageSize="pageSize" @ref="table">
         <BTableColumns>
             <BTableTemplateColumn Text="操作">
@@ -66,8 +49,11 @@ else
     {
         tables = GetDatabaseList(new ConnectionInfo { Account = Account, IpAdress = IpAdress, Port = Port, Pwd = Password });
     }
-    public void ShowDetail(object testData)
+    public async Task ShowDetail(object testData)
     {
-        MessageService.Show($"正在编辑 " + ((TableInfo)testData).TableName);
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("TableName", ((TableInfo)testData).TableName);
+        var result = await _DialogService.ShowDialogAsync<Property>("表详细属性", parameters);
+        MessageService.Show(result.ToString());
     }
 }
