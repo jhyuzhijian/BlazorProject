@@ -3,8 +3,8 @@
 @inherits Data.SqlConnect
 <h3>Sqldata</h3>
 <div>
-    IP：<input placeholder="Ip地址" @bind-value="IpAdress" />
-    Port:<input placeholder="端口号" @bind-value="Port" />
+    服务器地址：<input placeholder="服务器地址" @bind-value="Server" />
+    数据库名称：<input placeholder="数据库名称" @bind-value="Database" />
 </div>
 <div>
     Account:<input placeholder="账号" @bind-value="Account" />
@@ -13,7 +13,7 @@
 <button class="btn btn-primary" @onclick="connectionDb">连接数据库</button>
 @if (tables == null)
 {
-    <p><em>Loading</em></p>
+    <p><em>请填写数据库信息</em></p>
 }
 else
 {
@@ -29,30 +29,31 @@ else
 
 @code {
     [Parameter]
-    public string IpAdress { get; set; } = "127.0.0.1";
+    public string Server { get; set; } = "LAPTOP-FG0SOM1N";
     [Parameter]
-    public string Port { get; set; } = "3306";
+    public string Account { get; set; } = "sa";
     [Parameter]
-    public string Account { get; set; } = "root";
+    public string Password { get; set; } = "123";
     [Parameter]
-    public string Password { get; set; } = "123456";
+    public string Database { get; set; } = "test";
     [Inject]
     MessageService MessageService { get; set; }
 
     public void connectionDb()
     {
 
-        tables = GetDatabaseList(new ConnectionInfo { Account = Account, IpAdress = IpAdress, Port = Port, Pwd = Password });
+        tables = GetDatabaseList(new ConnectionInfo { Account = Account, Server = Server, Database = Database, Pwd = Password });
     }
 
     protected override void OnInitialized()
     {
-        tables = GetDatabaseList(new ConnectionInfo { Account = Account, IpAdress = IpAdress, Port = Port, Pwd = Password });
+        tables = new List<TableInfo>();
     }
     public async Task ShowDetail(object testData)
     {
         var parameters = new Dictionary<string, object>();
         parameters.Add("TableName", ((TableInfo)testData).TableName);
+        parameters.Add("DBServer", DBServer);
         var result = await _DialogService.ShowDialogAsync<Property>("表详细属性", parameters);
         MessageService.Show(result.ToString());
     }

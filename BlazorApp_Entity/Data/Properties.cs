@@ -12,6 +12,8 @@ namespace BlazorApp_Entity.Data
     {
         [Parameter]
         public string TableName { get; set; }
+        [Parameter]
+        public DBServer DBServer { get; set; }
         protected int currentPage;
         protected List<PropertyInfo> Datas = new List<PropertyInfo>();
         protected override void OnInitialized()
@@ -49,8 +51,8 @@ namespace BlazorApp_Entity.Data
             order by a.id,a.colorder";
 
             //string connection = $"Data Source=LAPTOP-FG0SOM1N;Initial Catalog=test;User ID=sa;Password=123;MultipleActiveResultSets=true";
-            string connection = "Data Source=SHARING\\SQLEXPRESS;Initial Catalog=edu_zjzj;User ID=sa;Password=123;MultipleActiveResultSets=true";
-            var TableList = new DBServer(connection).db.SqlQueryable<PropertyInfo>(sql).ToList();
+            //string connection = "Data Source=SHARING\\SQLEXPRESS;Initial Catalog=edu_zjzj;User ID=sa;Password=123;MultipleActiveResultSets=true";
+            var TableList = DBServer.db.SqlQueryable<PropertyInfo>(sql).ToList();
 
             return TableList;
         }

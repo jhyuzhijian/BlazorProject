@@ -9,8 +9,7 @@ namespace BlazorApp_Entity.Data
 {
     public class ConnectionInfo
     {
-        public string IpAdress { get; set; }
-        public string Port { get; set; }
+        public string Server { get; set; }
         public string Account { get; set; }
         public string Pwd { get; set; }
         public string Database { get; set; }
@@ -27,6 +26,8 @@ namespace BlazorApp_Entity.Data
     {
         protected BTable table;
         public List<TableInfo> tables = new List<TableInfo>();
+
+        public DBServer DBServer = new DBServer() { };
 
         protected int currentPage = 1;
         protected int pageSize = 5;
@@ -50,7 +51,8 @@ namespace BlazorApp_Entity.Data
         {
             //string connection = $"server={Info.IpAdress};port={Info.Port};uid={Info.Account};pwd={Info.Pwd};database={Info.Database}";
             //string connection = $"Data Source=LAPTOP-FG0SOM1N;Initial Catalog=test;User ID=sa;Password=123;MultipleActiveResultSets=true";
-            var TableList = new DBServer(connectionstr).db.SqlQueryable<TableInfo>(@"select top 1000
+            //DBServer.ConStr = $"server={Info.IpAdress};port={Info.Port};uid={Info.Account};pwd={Info.Pwd};database={Info.Database}";
+            var TableList = DBServer.db.SqlQueryable<TableInfo>(@"select top 1000
                                     ROW_NUMBER() OVER (ORDER BY a.name) AS No, 
                                     a.name AS TableName,
                                     CONVERT(NVARCHAR(100),isnull(g.[value],'-')) AS Describe
@@ -66,8 +68,10 @@ namespace BlazorApp_Entity.Data
         public List<TableInfo> GetDatabaseList(ConnectionInfo Info)
         {
             //string connection = $"server={Info.IpAdress};port={Info.Port};uid={Info.Account};pwd={Info.Pwd};database={Info.Database}";
-            string connection = $"Data Source=LAPTOP-FG0SOM1N;Initial Catalog=test;User ID=sa;Password=123;MultipleActiveResultSets=true";
-            var TableList = new DBServer(connectionstr).db.SqlQueryable<TableInfo>(@"select top 1000
+
+            //DBServer.ConStr=  $"Data Source=LAPTOP-FG0SOM1N;Initial Catalog=test;User ID=sa;Password=123;MultipleActiveResultSets=true";
+            DBServer.ConStr = $"server={Info.Server};uid={Info.Account};pwd={Info.Pwd};database={Info.Database}";
+            var TableList = DBServer.db.SqlQueryable<TableInfo>(@"select top 1000
                                     ROW_NUMBER() OVER (ORDER BY a.name) AS No, 
                                     a.name AS TableName,
                                     CONVERT(NVARCHAR(100),isnull(g.[value],'-')) AS Describe
